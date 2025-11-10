@@ -60,6 +60,7 @@
   box-shadow: 0 18px 50px rgba(255, 71, 126, 0.25);
   padding: 20px;
   width: 860px;
+  max-width: 95vw;
   margin: 0 auto;
 }
 .tabs { display: flex; gap: 10px; margin-bottom: 16px; justify-content: center; }
@@ -81,7 +82,7 @@
 .letter { display: grid; place-items: center; }
 .envelope {
   position: relative;
-  width: 380px;
+  width: clamp(280px, 92vw, 420px);
   height: clamp(260px, 50vh, 420px);
   background: #ffe0ea;
   border: 1px solid #ffcada;
@@ -142,4 +143,23 @@
   object-fit: cover;
   border-radius: 12px;
   border: 1px solid #f0d7de;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #root { padding: 1.5rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  #root { padding: 1rem; }
+  .lovers-card { padding: 16px; border-radius: 18px; }
+  .tabs { flex-wrap: wrap; gap: 8px; }
+  .paper-content { font-size: 0.95rem; }
+  .gallery-item { height: 220px; }
+}
+
+@media (max-width: 380px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item { height: 200px; }
 }
